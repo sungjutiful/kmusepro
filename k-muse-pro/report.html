@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4-Week Routine Report — K-Muse</title>
+<meta name="description" content="Turn your K-Muse ingredient matches into a step-by-step 4-week K-beauty routine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">K-<em>Muse</em></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="diagnosis.html">Skin Story</a></li>
+      <li><a href="report.html" class="active">Routine Report</a></li>
+      <li><a href="about.html">For Brands &amp; FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="diagnosis.html" class="btn btn-ghost">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Premium · 4-week routine report</p>
+    <h1>Turn your matches into a routine you'll actually follow.</h1>
+    <p>Step-by-step order, timing, and the combinations worth avoiding — built from your Skin Story.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap" style="max-width:760px;">
+
+    <!-- State A: no diagnosis on file -->
+    <div id="noDiagnosisState" class="form-card" style="display:none; text-align:center;">
+      <p class="eyebrow" style="justify-content:center;">One step first</p>
+      <h2>Let's do your Skin Story diagnosis first</h2>
+      <p style="color:var(--ink-soft); max-width:44ch; margin:0 auto 24px;">
+        The routine report is built from your ingredient matches, so we need those before we can plan your weeks.
+      </p>
+      <a href="diagnosis.html" class="btn btn-primary">Start your skin story →</a>
+    </div>
+
+    <!-- State B: has diagnosis, not unlocked -->
+    <div id="paywallState" style="display:none;">
+      <div class="paywall">
+        <p class="eyebrow" style="justify-content:center;">Your matches are ready</p>
+        <h2 style="color:var(--bg);">Unlock your 4-week routine</h2>
+        <div class="price">$3.90 <span style="font-size:16px; font-style:normal; color:rgba(243,246,241,0.6);">one-time</span></div>
+        <p class="lede">Built from the ingredients K-Muse already matched to your skin story.</p>
+        <div class="field" style="text-align:left; max-width:320px; margin:0 auto 22px;">
+          <label style="color:var(--bg);">Product budget</label>
+          <div class="option-grid" id="budgetGroup">
+            <label class="option" style="background:transparent; border-color:rgba(243,246,241,0.3); color:var(--bg);"><input type="radio" name="budget" value="Budget-friendly"><span>$</span></label>
+            <label class="option selected" style="background:transparent; border-color:rgba(243,246,241,0.3); color:var(--bg);"><input type="radio" name="budget" value="Mid-range" checked><span>$$</span></label>
+            <label class="option" style="background:transparent; border-color:rgba(243,246,241,0.3); color:var(--bg);"><input type="radio" name="budget" value="Premium"><span>$$$</span></label>
+          </div>
+        </div>
+        <ul>
+          <li>Week-by-week AM / PM routine</li>
+          <li>Order to layer your ingredients in</li>
+          <li>Combinations to avoid, and why</li>
+          <li>A shareable summary card</li>
+        </ul>
+        <button class="btn btn-peach" id="unlockBtn">Unlock my routine →</button>
+        <p class="demo-note">Demo checkout — this is a course project, no real payment is processed.</p>
+      </div>
+    </div>
+
+    <!-- State C: loading -->
+    <div class="status-box status-loading" id="loadingBox" style="margin-top:0;">
+      <span class="spinner"></span>
+      <span>Building your 4-week plan...</span>
+    </div>
+    <div class="status-box status-error" id="errorBox">
+      <span id="errorText">Something went wrong. Please try again.</span>
+    </div>
+
+    <!-- State D: report result -->
+    <div id="reportResult" style="display:none;">
+      <div class="section-head">
+        <p class="eyebrow">Unlocked</p>
+        <h2>Your 4-week routine</h2>
+      </div>
+      <div id="weeksArea"></div>
+      <div class="caution-box" id="cautionArea"></div>
+
+      <div class="specimen-card" style="margin-top:40px;">
+        <p class="specimen-eyebrow">Shareable summary</p>
+        <h3 class="specimen-name" id="shareTitle">Your K-Muse routine</h3>
+        <p class="specimen-effect" id="shareBody"></p>
+        <p class="specimen-reason">k-muse.app</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- mock checkout modal -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal">
+    <h3>Demo checkout</h3>
+    <p>In a real deployment this would hand off to Stripe or a local PG provider. For this course project, we simulate a successful payment.</p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="cancelCheckout">Cancel</button>
+      <button class="btn btn-primary" id="confirmCheckout">Simulate payment →</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 K-Muse. A student project — not a real commercial service.</span>
+      <span>Made with an AI coding tool</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/report.js"></script>
+</body>
+</html>

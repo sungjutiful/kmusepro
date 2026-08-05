@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Brands &amp; FAQ — K-Muse</title>
+<meta name="description" content="How K-Muse works with indie K-beauty brands, and answers to common questions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">K-<em>Muse</em></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="diagnosis.html">Skin Story</a></li>
+      <li><a href="report.html">Routine Report</a></li>
+      <li><a href="about.html" class="active">For Brands &amp; FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="diagnosis.html" class="btn btn-ghost">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Our story</p>
+    <h1>Made for the moment before someone knows what to search for.</h1>
+    <p>Review and ranking apps are excellent once a shopper already knows what they're looking for. K-Muse exists a step earlier — when a K-beauty ingredient is still just an unfamiliar word on a label.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:0;" id="brands">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">For brands</p>
+      <h2>Meet shoppers at the moment they're learning your ingredient.</h2>
+      <p>When someone's Skin Story matches an ingredient your product is built around, indie K-beauty brands can appear right alongside that match — introduced at the exact moment a shopper is already curious, not interrupting them with an unrelated ad.</p>
+    </div>
+    <div class="brand-band">
+      <div>
+        <h3 style="margin-bottom:6px;">Partner placement</h3>
+        <p style="color:var(--ink-soft); margin:0;">A single ingredient-matched slot on the Skin Story results page. Reviewed manually before launch — no bidding wars, no keyword stuffing.</p>
+      </div>
+      <a href="mailto:hello@k-muse.app" class="btn btn-primary">Inquire about a slot →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head">
+      <p class="eyebrow">FAQ</p>
+      <h2>Common questions</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Is the Skin Story diagnosis really free? <span class="icon">+</span></button>
+        <div class="faq-a"><p>Yes. Your ingredient matches and the reasoning behind them are always free. The 4-week routine report is the paid, deeper layer.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens to the information I enter? <span class="icon">+</span></button>
+        <div class="faq-a"><p>Your answers are used only to generate your match and routine for this session. This is a course project, so nothing is stored beyond your browser.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is K-Muse different from a review or ranking app? <span class="icon">+</span></button>
+        <div class="faq-a"><p>Ranking apps are built around search and existing reviews. K-Muse starts from a short description of your skin and explains ingredients in plain language before you know what to search for.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can a brand pay to appear in every result? <span class="icon">+</span></button>
+        <div class="faq-a"><p>No. A brand can only appear when their product is genuinely built around the ingredient you were already matched with, and placements are reviewed manually.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:560px;">
+    <div class="section-head">
+      <p class="eyebrow">Contact</p>
+      <h2>Say hello</h2>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <div class="field">
+        <label for="cName">Name</label>
+        <input type="text" id="cName" name="name" required>
+      </div>
+      <div class="field">
+        <label for="cEmail">Email</label>
+        <input type="text" id="cEmail" name="email" required>
+      </div>
+      <div class="field">
+        <label for="cMsg">Message</label>
+        <textarea id="cMsg" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Send message</button>
+      <p class="field-hint" id="contactNote" style="display:none;">Thanks — this demo form doesn't send anywhere yet, but in production it would reach our team.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 K-Muse. A student project — not a real commercial service.</span>
+      <span>Made with an AI coding tool</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+document.querySelectorAll('.faq-item').forEach(function (item) {
+  item.querySelector('.faq-q').addEventListener('click', function () {
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function (o) { o.classList.remove('open'); });
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('contactNote').style.display = 'block';
+});
+</script>
+</body>
+</html>

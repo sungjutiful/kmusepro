@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Story Diagnosis — K-Muse</title>
+<meta name="description" content="Tell K-Muse your skin story and get K-beauty ingredients matched and explained in plain English.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">K-<em>Muse</em></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="diagnosis.html" class="active">Skin Story</a></li>
+      <li><a href="report.html">Routine Report</a></li>
+      <li><a href="about.html">For Brands &amp; FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="diagnosis.html" class="btn btn-ghost">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Free · AI Skin Story diagnosis</p>
+    <h1>What's going on with your skin lately?</h1>
+    <p>Answer three quick things. K-Muse will match you with real K-beauty ingredients and explain each one in plain English.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap" style="max-width:760px;">
+    <form class="form-card" id="diagnosisForm" novalidate>
+
+      <div class="field">
+        <label class="required">Skin type</label>
+        <div class="option-grid" id="skinTypeGroup" role="radiogroup">
+          <label class="option"><input type="radio" name="skinType" value="Dry"><span>Dry</span></label>
+          <label class="option"><input type="radio" name="skinType" value="Oily"><span>Oily</span></label>
+          <label class="option"><input type="radio" name="skinType" value="Combination"><span>Combination</span></label>
+          <label class="option"><input type="radio" name="skinType" value="Sensitive"><span>Sensitive</span></label>
+        </div>
+        <p class="field-error">Please choose your skin type.</p>
+      </div>
+
+      <div class="field">
+        <label class="required">Main concern</label>
+        <div class="option-grid" id="concernGroup" role="radiogroup">
+          <label class="option"><input type="radio" name="concern" value="Breakouts / trouble"><span>Breakouts</span></label>
+          <label class="option"><input type="radio" name="concern" value="Dryness / dehydration"><span>Dryness</span></label>
+          <label class="option"><input type="radio" name="concern" value="Dullness / uneven tone"><span>Dullness</span></label>
+          <label class="option"><input type="radio" name="concern" value="Fine lines / firmness"><span>Firmness</span></label>
+        </div>
+        <p class="field-error">Please choose your main concern.</p>
+      </div>
+
+      <div class="field">
+        <label for="freeText">Tell us more (optional, but it helps)</label>
+        <textarea id="freeText" name="freeText" rows="4" placeholder="e.g. Lots of late nights lately, stress breakouts along my jawline, skin feels tight by the afternoon..."></textarea>
+        <p class="field-hint">This is what makes your match personal — a lifestyle detail, a trigger, anything.</p>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full">Read my skin story →</button>
+
+      <div class="status-box status-loading" id="loadingBox">
+        <span class="spinner"></span>
+        <span id="loadingText">Reading your skin story...</span>
+      </div>
+      <div class="status-box status-error" id="errorBox">
+        <span id="errorText">Something went wrong. Please try again.</span>
+      </div>
+    </form>
+
+    <div class="result-area" id="resultArea" style="display:none;">
+      <div class="section-head">
+        <p class="eyebrow">Your matches</p>
+        <h2>Ingredients picked for your story</h2>
+      </div>
+      <div class="result-grid" id="resultGrid"></div>
+
+      <div class="cta-banner" style="margin-top:48px;">
+        <h2>Want the full 4-week routine built from these?</h2>
+        <a href="report.html" class="btn btn-peach" id="toReportLink">See the routine report →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 K-Muse. A student project — not a real commercial service.</span>
+      <span>Made with an AI coding tool</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/diagnosis.js"></script>
+</body>
+</html>
